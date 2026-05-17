@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import siteConfig from '@/config/site.json'
 
 export function Footer() {
   return (
@@ -6,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[13px] text-muted">
-            © {new Date().getFullYear()} Solo Dev Agency. Built for clients who value direct, careful work.
+            © {new Date().getFullYear()} {siteConfig.name}. Built for clients who value direct, careful work.
           </p>
           
           <div className="flex items-center gap-8 text-[13px] text-muted">

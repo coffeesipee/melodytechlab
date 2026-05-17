@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import siteConfig from '@/config/site.json'
 
 export function Navbar() {
   return (
@@ -9,7 +10,7 @@ export function Navbar() {
             A
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm leading-none">Solo Dev Agency</span>
+            <span className="font-bold text-sm leading-none">{siteConfig.name}</span>
             <span className="text-[10px] text-muted">Web, Mobile, Deployment & Support</span>
           </div>
         </Link>

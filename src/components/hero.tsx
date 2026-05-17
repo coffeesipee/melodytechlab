@@ -7,8 +7,13 @@ import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-44 pb-32 overflow-hidden">
       <div className="container mx-auto px-4">
+        {/* Animated Background Mesh */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] animate-pulse delay-700" />
+        </div>
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="flex-1 text-left">
             <motion.div
