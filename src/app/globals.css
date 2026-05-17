@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
+  --background: #02040a;
   --foreground: #ffffff;
   --brand: #8b5cf6;
   --brand-light: #a78bfa;
   --brand-dark: #7c3aed;
-  --card: #111113;
-  --card-hover: #18181b;
-  --card-border: #27272a;
-  --muted: #a1a1aa;
+  --card: #0d0f17;
+  --card-hover: #141724;
+  --card-border: #1e2130;
+  --muted: #94a3b8;
 }
 
 @theme {
@@ -25,23 +25,16 @@
   
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  --animate-gradient: gradient 15s ease infinite;
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   position: relative;
+  min-height: 100vh;
 }
 
-/* Background Gradients */
+/* Atmospheric Background Glows */
 body::before {
   content: "";
   position: fixed;
@@ -49,10 +42,25 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
-              radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
-              radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.03) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Subtle Noise Texture */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
   pointer-events: none;
   z-index: -1;
 }
