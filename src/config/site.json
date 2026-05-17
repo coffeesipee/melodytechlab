@@ -1,9 +1,9 @@
 {
-  "name": "Solo Dev Agency",
-  "title": "Solo Dev Agency | Premium Web & Mobile Development",
+  "name": "Melodytechlab",
+  "title": "Melodytechlab | Software Agency",
   "description": "I build websites and mobile apps that feel premium, launch smoothly, and keep working. One-person agency focused on quality and speed.",
   "keywords": ["web development", "mobile apps", "next.js", "supabase", "react", "solo agency", "fullstack developer"],
-  "url": "https://solodev.agency",
+  "url": "https://melodytech.my.id",
   "ogImage": "/og-image.png",
   "links": {
     "services": "/#services",
