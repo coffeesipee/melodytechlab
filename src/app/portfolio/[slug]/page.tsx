@@ -3,6 +3,7 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import { Gallery } from './_components/gallery'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, ArrowLeft, Calendar, User } from 'lucide-react'
 import Link from 'next/link'
@@ -85,23 +86,12 @@ export default async function PortfolioDetailPage({ params }: { params: { slug: 
                   src={project.main_image_url}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               
               {images && images.length > 0 && (
-                <div className="grid grid-cols-2 gap-4">
-                  {images.map((img) => (
-                    <div key={img.id} className="relative aspect-video rounded-2xl overflow-hidden bg-card border border-card-border">
-                      <Image
-                        src={img.image_url}
-                        alt="Gallery"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <Gallery images={images} />
               )}
             </div>
           </div>

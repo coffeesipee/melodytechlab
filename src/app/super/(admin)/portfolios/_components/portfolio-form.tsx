@@ -259,7 +259,7 @@ export function PortfolioForm({ initialData, initialImages = [] }: PortfolioForm
                   {galleryImages.map((img, i) => (
                     img.image_url && (
                       <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-card-border">
-                        <Image src={img.image_url} alt="Gallery" fill className="object-cover" />
+                        <Image src={img.image_url} alt="Gallery" fill className="object-cover object-top" />
                         <button
                           type="button"
                           onClick={() => setGalleryImages(galleryImages.filter((_, idx) => idx !== i))}
@@ -285,7 +285,7 @@ export function PortfolioForm({ initialData, initialImages = [] }: PortfolioForm
                 <label className="block text-sm font-medium mb-4">Main Preview Image</label>
                 {formData.main_image_url ? (
                   <div className="relative aspect-video rounded-xl overflow-hidden border border-card-border mb-4">
-                    <Image src={formData.main_image_url} alt="Main" fill className="object-cover" />
+                    <Image src={formData.main_image_url} alt="Main" fill className="object-cover object-top" />
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, main_image_url: '' })}

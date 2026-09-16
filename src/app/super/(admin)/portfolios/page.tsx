@@ -34,7 +34,7 @@ export default async function PortfoliosAdminPage() {
                   src={project.main_image_url}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-muted italic text-xs">

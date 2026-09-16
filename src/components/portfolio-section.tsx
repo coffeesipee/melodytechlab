@@ -57,7 +57,7 @@ export function PortfolioSection({ portfolios }: { portfolios: Portfolio[] }) {
                     src={project.main_image_url}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-muted italic">
