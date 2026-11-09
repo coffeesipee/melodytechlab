@@ -18,6 +18,19 @@ export interface PortfolioItem {
 
 const detailedPortfolio: PortfolioItem[] = [
   {
+    id: "p-porsi",
+    title: "Porsi - Smart POS & F&B Operations Platform",
+    slug: "porsi",
+    client: "Porsi F&B Ecosystem",
+    category: "SaaS & Cloud POS",
+    year: "2026",
+    description: "Platform SaaS kasir pintar (POS) dan ekosistem manajemen bisnis kuliner terpadu dengan mode offline-first, kalkulasi HPP otomatis berbasis resep (BOM), dan inventori batch FEFO anti basi.",
+    main_image_url: "https://zhtgdtvayubhjlhaedti.supabase.co/storage/v1/object/public/images/portfolio/main/mnb9dp0aki.png",
+    challenge: "Pemilik usaha kuliner sering boncos karena fluktuasi harga bahan baku, stok kedaluwarsa di gudang, dan kasir mati total saat koneksi internet offline.",
+    solution: "Kasir offline-first yang otomatis sinkronisasi saat online, integrasi HPP resep real-time, dan alert batch FEFO sebelum bahan baku kedaluwarsa.",
+    tech_stack: ["Offline-First POS", "Next.js SaaS", "HPP Automation", "Batch Tracking FEFO"]
+  },
+  {
     id: "p1",
     title: "Smart Work Order System",
     slug: "smart-wo",
