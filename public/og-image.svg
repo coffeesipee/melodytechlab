@@ -1,52 +1,41 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#09090B"/>
+  <rect width="1200" height="630" fill="#F8FAFC"/>
   
-  <!-- Subtle Grid Lines -->
   <defs>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
-    </pattern>
-    <radialGradient id="grad" cx="50%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#09090B" stop-opacity="0"/>
+    <radialGradient id="grad" cx="50%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="1"/>
     </radialGradient>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#grid)" />
   <rect width="1200" height="630" fill="url(#grad)" />
 
-  <!-- Brand Mark -->
-  <g transform="translate(100, 120)">
-    <rect width="72" height="72" rx="18" fill="#18181B" stroke="#27272A" stroke-width="2"/>
-    <path d="M18 52V20L36 38L54 20V52" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="36" cy="52" r="3.5" fill="#60A5FA"/>
-    <text x="96" y="48" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.5">Melodytechlab</text>
+  <g transform="translate(100, 100)">
+    <rect width="72" height="72" rx="18" fill="#0284C7"/>
+    <path d="M18 52V20L36 38L54 20V52" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="36" cy="52" r="3.5" fill="#FFFFFF"/>
+    <text x="96" y="48" fill="#0F172A" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700">Melodytechlab</text>
   </g>
 
-  <!-- Typography -->
-  <text x="100" y="290" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" letter-spacing="-1.5">
-    High-Reliability Software
+  <text x="100" y="270" fill="#0F172A" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">
+    Jasa Pembuatan Website &amp;
   </text>
-  <text x="100" y="360" fill="#3B82F6" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" letter-spacing="-1.5">
-    Engineering &amp; Architecture
+  <text x="100" y="336" fill="#0284C7" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">
+    Aplikasi Mobile Profesional
   </text>
   
-  <text x="100" y="440" fill="#A1A1AA" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" max-width="800">
-    Boutique software engineering lab crafting scalable web apps, mobile solutions,
-  </text>
-  <text x="100" y="472" fill="#A1A1AA" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400">
-    and cloud systems with zero agency bureaucracy.
+  <text x="100" y="415" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400">
+    Membantu bisnis meluncurkan produk digital yang cepat, indah, dan fungsional.
   </text>
 
-  <!-- Badges -->
-  <g transform="translate(100, 520)">
-    <rect width="140" height="38" rx="8" fill="#18181B" stroke="#27272A"/>
-    <text x="20" y="24" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Next.js &amp; Go</text>
+  <g transform="translate(100, 480)">
+    <rect width="180" height="42" rx="21" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="24" y="26" fill="#0284C7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">✓ Web Development</text>
 
-    <rect x="156" width="160" height="38" rx="8" fill="#18181B" stroke="#27272A"/>
-    <text x="176" y="24" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Cloud Architecture</text>
+    <rect x="200" width="160" height="42" rx="21" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="224" y="26" fill="#0284C7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">✓ Mobile Apps</text>
 
-    <rect x="332" width="160" height="38" rx="8" fill="#18181B" stroke="#27272A"/>
-    <text x="352" y="24" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Enterprise Delivery</text>
+    <rect x="380" width="180" height="42" rx="21" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="404" y="26" fill="#0284C7" font-family="system-ui, sans-serif" font-size="14" font-weight="600">✓ Konsultasi Gratis</text>
   </g>
 </svg>

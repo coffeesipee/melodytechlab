@@ -4,41 +4,38 @@ import { BrandLogo } from '@/components/brand-logo'
 
 export function Navbar() {
   return (
-    <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl">
-      <nav className="bg-card/70 backdrop-blur-xl border border-card-border/80 rounded-2xl px-5 py-3 flex items-center justify-between shadow-2xl shadow-black/50">
-        <Link href="/" className="flex items-center gap-3 group">
-          <BrandLogo className="w-10 h-10" />
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+      <nav className="bg-white/85 backdrop-blur-md border border-zinc-200/80 rounded-full px-5 py-2.5 flex items-center justify-between shadow-sm shadow-zinc-200/50">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <BrandLogo className="w-8 h-8 rounded-lg" />
           <div className="flex flex-col">
-            <span className="font-bold text-sm tracking-tight text-foreground group-hover:text-brand-light transition-colors">
+            <span className="font-bold text-sm tracking-tight text-zinc-900 group-hover:text-brand transition-colors">
               {siteConfig.name}
-            </span>
-            <span className="text-[10px] text-muted tracking-wide font-mono uppercase">
-              Engineering Studio
             </span>
           </div>
         </Link>
         
-        <div className="hidden md:flex items-center gap-7 text-[13px] font-medium text-muted">
-          <Link href="/#services" className="hover:text-foreground transition-colors">
-            Services
+        <div className="hidden md:flex items-center gap-8 text-[13px] font-medium text-zinc-600">
+          <Link href="/#services" className="hover:text-zinc-900 transition-colors">
+            Layanan
           </Link>
-          <Link href="/portfolio" className="hover:text-foreground transition-colors">
-            Portfolio
+          <Link href="/portfolio" className="hover:text-zinc-900 transition-colors">
+            Portofolio
           </Link>
-          <Link href="/articles" className="hover:text-foreground transition-colors">
-            Articles
+          <Link href="/articles" className="hover:text-zinc-900 transition-colors">
+            Artikel
           </Link>
-          <Link href="/about" className="hover:text-foreground transition-colors">
-            About
+          <Link href="/about" className="hover:text-zinc-900 transition-colors">
+            Tentang Kami
           </Link>
         </div>
 
         <div className="flex items-center gap-3">
           <Link
             href="/#contact"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold bg-brand text-white hover:bg-brand-dark transition-all shadow-md shadow-brand/20"
+            className="inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-semibold bg-zinc-900 text-white hover:bg-zinc-800 transition-all shadow-sm"
           >
-            Start a Project
+            Konsultasi Gratis
           </Link>
         </div>
       </nav>

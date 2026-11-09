@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from './ui/button'
-import { Send, CheckCircle2, ShieldAlert } from 'lucide-react'
+import { Send, CheckCircle2, MessageSquare, Clock, ShieldCheck } from 'lucide-react'
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
@@ -14,133 +14,130 @@ export function ContactSection() {
     setTimeout(() => {
       setLoading(false)
       setSubmitted(true)
-    }, 600)
+    }, 500)
   }
 
   return (
-    <section id="contact" className="py-24 border-t border-card-border/60 bg-background">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="rounded-3xl bg-card border border-card-border overflow-hidden shadow-2xl">
+    <section id="contact" className="py-20 md:py-28 bg-[#fbfbfd]">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="rounded-3xl bg-white border border-zinc-200/90 overflow-hidden shadow-xl shadow-zinc-200/40">
           <div className="grid md:grid-cols-2">
-            {/* Info Column */}
-            <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-card-border flex flex-col justify-between">
+            {/* Left Column */}
+            <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-zinc-100 flex flex-col justify-between bg-zinc-50/50">
               <div>
-                <span className="text-brand-light font-mono text-xs tracking-wider uppercase mb-3 block">
-                  Project Inquiry
+                <span className="text-brand font-semibold text-xs tracking-wider uppercase mb-2 block">
+                  Hubungi Kami
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  Ready to engineer your next digital platform?
+                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mb-4">
+                  Ceritakan ide atau kendala sistem Anda.
                 </h2>
-                <p className="text-muted text-sm md:text-base leading-relaxed mb-8">
-                  Whether you require an enterprise web portal, mobile app development, or autonomous AI workflows — let&apos;s evaluate your technical requirements with clarity.
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6">
+                  Tidak perlu sungkan bila detail proyek Anda belum matang. Kami bantu susun rencana teknis dan berikan rekomendasi yang paling hemat biaya.
                 </p>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span className="text-xs text-foreground">Direct discussion with lead engineers</span>
+                <div className="space-y-3.5">
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                    <MessageSquare className="w-4 h-4 text-brand shrink-0" />
+                    <span className="text-xs text-zinc-700 font-medium">Konsultasi awal 100% gratis</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span className="text-xs text-foreground">Confidential NDA protected by default</span>
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                    <Clock className="w-4 h-4 text-brand shrink-0" />
+                    <span className="text-xs text-zinc-700 font-medium">Balasan cepat dalam 24 jam</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span className="text-xs text-foreground">Detailed technical roadmap &amp; quote in 48 hours</span>
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                    <ShieldCheck className="w-4 h-4 text-brand shrink-0" />
+                    <span className="text-xs text-zinc-700 font-medium">Privasi data &amp; ide terjamin aman</span>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-8 mt-8 border-t border-card-border/60 font-mono text-xs text-muted">
-                <span>Inquiries: </span>
-                <a href="mailto:hello@melodytech.my.id" className="text-brand-light hover:underline">
-                  hello@melodytech.my.id
-                </a>
+              <div className="pt-6 mt-6 border-t border-zinc-200/80 text-xs text-zinc-500">
+                Email langsung: <a href="mailto:hello@melodytech.my.id" className="font-semibold text-brand hover:underline">hello@melodytech.my.id</a>
               </div>
             </div>
 
-            {/* Form Column */}
-            <div className="p-8 md:p-12 bg-card-hover/20">
+            {/* Right Column Form */}
+            <div className="p-8 md:p-10 bg-white">
               {submitted ? (
-                <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
-                    <CheckCircle2 className="w-7 h-7" />
+                <div className="h-full flex flex-col items-center justify-center text-center py-10">
+                  <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                    <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Inquiry Received</h3>
-                  <p className="text-muted text-xs md:text-sm max-w-sm mb-6 leading-relaxed">
-                    Thank you. We will review your project details and reach out within 24–48 hours to schedule a discovery call.
+                  <h3 className="text-lg font-bold text-zinc-900 mb-1.5">Pesan Berhasil Terkirim!</h3>
+                  <p className="text-zinc-600 text-xs sm:text-sm max-w-xs mb-6 leading-relaxed">
+                    Terima kasih. Kami akan mempelajari kebutuhan Anda dan segera menghubungi via email.
                   </p>
-                  <Button variant="outline" size="sm" onClick={() => setSubmitted(false)}>
-                    Send Another Message
+                  <Button variant="outline" size="sm" onClick={() => setSubmitted(false)} className="rounded-full">
+                    Kirim Pesan Lain
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase text-muted mb-2">
-                      Full Name *
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1.5">
+                      Nama Lengkap Anda *
                     </label>
                     <input
                       required
                       name="name"
-                      placeholder="e.g. Alex Johnson"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors"
+                      placeholder="Contoh: Budi Santoso"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:border-brand focus:ring-1 focus:ring-brand outline-none text-sm transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-muted mb-2">
-                      Work Email *
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1.5">
+                      Email Aktif *
                     </label>
                     <input
                       required
                       type="email"
                       name="email"
-                      placeholder="alex@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors"
+                      placeholder="budi@perusahaan.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:border-brand focus:ring-1 focus:ring-brand outline-none text-sm transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-muted mb-2">
-                      Scope / Focus Area *
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1.5">
+                      Layanan yang Dibutuhkan *
                     </label>
                     <select
                       required
                       name="service_type"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors text-foreground"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-900 focus:border-brand focus:ring-1 focus:ring-brand outline-none text-sm transition-all"
                     >
-                      <option value="">Select scope</option>
-                      <option value="web">Web Application / SaaS Engineering</option>
-                      <option value="mobile">Mobile Application Development</option>
-                      <option value="ai">AI &amp; Autonomous Agent Systems</option>
-                      <option value="infra">Cloud Architecture &amp; DevOps</option>
-                      <option value="consult">Technical Architecture Audit</option>
+                      <option value="">Pilih layanan</option>
+                      <option value="web">Pembuatan Website Baru / Redesign</option>
+                      <option value="mobile">Pembuatan Aplikasi Mobile (Android/iOS)</option>
+                      <option value="ai">Integrasi AI / Chatbot / Automasi</option>
+                      <option value="maintenance">Perawatan Server / Perbaikan Bug</option>
+                      <option value="other">Konsultasi Kebutuhan Lainnya</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-muted mb-2">
-                      Project Goals &amp; Timeline *
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1.5">
+                      Ceritakan Kebutuhan Proyek *
                     </label>
                     <textarea
                       required
                       name="details"
-                      rows={4}
-                      placeholder="Describe your current system or what you are aiming to build..."
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors resize-none"
+                      rows={3}
+                      placeholder="Contoh: Saya butuh website katalog produk yang bisa menerima pesanan via WhatsApp..."
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:border-brand focus:ring-1 focus:ring-brand outline-none text-sm transition-all resize-none"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-brand hover:bg-brand-dark text-white rounded-xl py-6 text-sm font-semibold shadow-md shadow-brand/20 gap-2"
+                    className="w-full bg-brand hover:bg-brand-hover text-white rounded-full py-5 text-sm font-semibold shadow-md shadow-brand/20 gap-2 mt-2"
                   >
-                    {loading ? "Transmitting..." : (
+                    {loading ? "Mengirim..." : (
                       <>
                         <Send className="w-4 h-4" />
-                        Submit Project Inquiry
+                        Kirim Pertanyaan
                       </>
                     )}
                   </Button>

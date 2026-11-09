@@ -1,30 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
-  --foreground: #f4f4f5;
-  --brand: #2563eb;
-  --brand-light: #60a5fa;
-  --brand-dark: #1d4ed8;
-  --card: #121215;
-  --card-hover: #18181b;
-  --card-border: #27272a;
-  --muted: #a1a1aa;
+  /* Clean, Warm-Tinted High-End SaaS Light Theme */
+  --background: #fbfbfd;
+  --foreground: #09090b;
+  --surface: #ffffff;
+  --surface-subtle: #f4f4f6;
+  --brand: #0284c7;        /* Crisp Ocean Blue */
+  --brand-hover: #0369a1;
+  --brand-light: #e0f2fe;  /* Soft Sky tint for badges */
+  --card: #ffffff;
+  --card-hover: #ffffff;
+  --card-border: #e4e4e7;
+  --muted: #52525b;
+  --muted-light: #71717a;
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
   --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
   --color-brand-light: var(--brand-light);
-  --color-brand-dark: var(--brand-dark);
   --color-card: var(--card);
   --color-card-hover: var(--card-hover);
   --color-card-border: var(--card-border);
   --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
   
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, Menlo, Monaco, monospace;
 }
 
 body {
@@ -32,9 +39,11 @@ body {
   color: var(--foreground);
   position: relative;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Subtle Technical Grid Background without AI blob slop */
+/* Subtle, elegant light mesh gradient */
 body::before {
   content: "";
   position: fixed;
@@ -42,12 +51,27 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
+    radial-gradient(at 15% 10%, rgba(2, 132, 199, 0.05) 0px, transparent 50%),
+    radial-gradient(at 85% 0%, rgba(99, 102, 241, 0.04) 0px, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(2, 132, 199, 0.03) 0px, transparent 60%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Clean, modern micro-dot texture */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 28px 28px;
+  background-image: radial-gradient(#d4d4d8 0.75px, transparent 0.75px);
+  mask-image: radial-gradient(ellipse at 50% 30%, black 50%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 50%, transparent 85%);
+  opacity: 0.6;
   pointer-events: none;
   z-index: -1;
 }

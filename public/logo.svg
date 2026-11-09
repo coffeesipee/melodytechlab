@@ -1,9 +1,5 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="16" fill="#09090B"/>
-  <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" stroke="#27272A" stroke-width="1"/>
-  <!-- Minimalist Geometric M + Waveform Brand Mark -->
-  <path d="M16 46V18L32 34L48 18V46" stroke="#3B82F6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="32" cy="46" r="3" fill="#60A5FA"/>
-  <circle cx="16" cy="18" r="3" fill="#60A5FA"/>
-  <circle cx="48" cy="18" r="3" fill="#60A5FA"/>
+  <rect width="64" height="64" rx="16" fill="#0284C7"/>
+  <path d="M16 46V18L32 34L48 18V46" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="46" r="3" fill="#FFFFFF"/>
 </svg>

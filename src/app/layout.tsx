@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import NextTopLoader from 'nextjs-toploader';
 import "./globals.css";
 import siteConfig from "@/config/site.json";
 
@@ -16,8 +17,8 @@ const geistMono = Geist_Mono({
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url || "https://melodytech.my.id";
 
 export const viewport: Viewport = {
-  themeColor: "#09090b",
-  colorScheme: "dark",
+  themeColor: "#fbfbfd",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -25,19 +26,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${siteConfig.name} | Boutique Software Engineering & Architecture Studio`,
+    default: `${siteConfig.name} | Modern Software Development Studio`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [{ name: "Melodytechlab Engineering Team", url: baseUrl }],
+  authors: [{ name: "Melodytechlab Team", url: baseUrl }],
   creator: "Melodytechlab",
   publisher: "Melodytechlab",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `${siteConfig.name} | Boutique Software Engineering & Architecture Studio`,
+    title: `${siteConfig.name} | Modern Software Development Studio`,
     description: siteConfig.description,
     url: baseUrl,
     siteName: siteConfig.name,
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Melodytechlab - Software Engineering Studio",
+        alt: "Melodytechlab - Software Studio",
       },
     ],
     locale: "en_US",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Boutique Software Engineering & Architecture Studio`,
+    title: `${siteConfig.name} | Modern Software Development Studio`,
     description: siteConfig.description,
     images: ["/og-image.png"],
     creator: "@melodytechlab",
@@ -87,17 +88,13 @@ export default function RootLayout({
         url: baseUrl,
         logo: `${baseUrl}/logo.svg`,
         description: siteConfig.description,
-        sameAs: [
-          "https://github.com/coffeesipee",
-        ],
+        sameAs: ["https://github.com/coffeesipee"],
         knowsAbout: [
-          "Web Application Engineering",
+          "Web Application Development",
           "Mobile App Development",
-          "Cloud Architecture & DevOps",
-          "AI & LLM Integration",
-          "Database Architecture",
-          "Next.js & React",
-          "Go & Microservices",
+          "Cloud Infrastructure",
+          "AI Integrations",
+          "Enterprise Software",
         ],
       },
       {
@@ -129,7 +126,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
       <head>
         <script
@@ -137,7 +134,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-brand/20 selection:text-brand-light">
+      <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-brand-light selection:text-brand-hover">
+        <NextTopLoader
+          color="#0284c7"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #0284c7,0 0 5px #0284c7"
+        />
         {children}
       </body>
     </html>

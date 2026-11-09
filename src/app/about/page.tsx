@@ -1,10 +1,10 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { Terminal, Shield, Zap } from 'lucide-react'
+import { Sparkles, HeartHandshake, ShieldCheck, Zap } from 'lucide-react'
 
 export const metadata = {
-  title: 'About Studio | Melodytechlab',
-  description: 'Learn about Melodytechlab, a boutique software engineering studio crafting high-reliability web, mobile, and cloud software.',
+  title: 'Tentang Kami | Melodytechlab',
+  description: 'Mengenal Melodytechlab, studio pembuatan website dan aplikasi mobile terpercaya untuk bisnis dan startup.',
 }
 
 export default function AboutPage() {
@@ -12,68 +12,50 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       
-      <section className="pt-36 pb-24">
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand-light text-xs font-mono mb-6">
-            Studio Philosophy &amp; Standards
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-800 border border-sky-100 text-xs font-semibold mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-sky-600" />
+            Tentang Melodytechlab
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
-            Engineering software that survives the test of production.
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 tracking-tight mb-6 leading-tight">
+            Membantu bisnis melangkah ke ranah digital dengan percaya diri.
           </h1>
           
-          <p className="text-lg md:text-xl text-muted leading-relaxed mb-16">
-            Melodytechlab was founded on a simple principle: high-stakes software should be engineered by senior practitioners who care about code quality, architectural durability, and business viability — not bloated agency teams with billable padding.
+          <p className="text-base sm:text-lg text-zinc-600 leading-relaxed mb-12">
+            Melodytechlab hadir sebagai mitra digital bagi bisnis, UMKM, dan perorangan yang membutuhkan website serta aplikasi mobile berkualitas tanpa proses yang berbelit-belit. Kami percaya bahwa produk digital yang hebat berawal dari komunikasi yang jujur dan pemahaman mendalam tentang kebutuhan Anda.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-20">
-            <div className="p-6 rounded-2xl bg-card border border-card-border">
-              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
-                <Terminal className="w-5 h-5" />
+          <div className="grid sm:grid-cols-3 gap-6 mb-16">
+            <div className="p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4">
+                <HeartHandshake className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base mb-2">Pragmatic Tech Choices</h3>
-              <p className="text-xs text-muted leading-relaxed">
-                We select tools based on longevity and runtime performance — Go, Next.js, PostgreSQL, Docker — avoiding fleeting hype cycles.
+              <h3 className="font-bold text-sm text-zinc-900 mb-1.5">Pendekatan Ramah</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">
+                Kami jelaskan setiap istilah teknis dengan bahasa yang sederhana agar Anda dapat mengambil keputusan bisnis terbaik.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-card-border">
-              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
-                <Shield className="w-5 h-5" />
+            <div className="p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4">
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base mb-2">Zero Handoff Friction</h3>
-              <p className="text-xs text-muted leading-relaxed">
-                Direct client-to-engineer communication ensures technical realities guide strategic choices from day one.
+              <h3 className="font-bold text-sm text-zinc-900 mb-1.5">Komitmen Kualitas</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">
+                Hasil pengerjaan selalu melalui pengecekan menyeluruh agar bebas error, cepat diakses, dan nyaman dipandang.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-card-border">
-              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
+            <div className="p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4">
                 <Zap className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base mb-2">High Leverage Delivery</h3>
-              <p className="text-xs text-muted leading-relaxed">
-                Automated CI/CD, modular scaffolding, and strict testing gates mean faster releases with fewer regression surprises.
+              <h3 className="font-bold text-sm text-zinc-900 mb-1.5">Proses Cepat</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">
+                Alur kerja efisien memastikan proyek Anda dapat segera online dan mulai melayani calon pelanggan.
               </p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center border-t border-card-border/60 pt-16 font-mono">
-            <div>
-              <p className="text-3xl font-bold text-foreground mb-1">99.9%</p>
-              <p className="text-[11px] text-muted uppercase tracking-wider">Uptime Standards</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-brand-light mb-1">Enterprise</p>
-              <p className="text-[11px] text-muted uppercase tracking-wider">Clients Handled</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-foreground mb-1">100%</p>
-              <p className="text-[11px] text-muted uppercase tracking-wider">IP Ownership</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-brand-light mb-1">Zero</p>
-              <p className="text-[11px] text-muted uppercase tracking-wider">Agency Bloat</p>
             </div>
           </div>
         </div>

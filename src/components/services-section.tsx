@@ -1,4 +1,4 @@
-import { Code2, Smartphone, Cpu, CloudCog } from 'lucide-react'
+import { Globe, Smartphone, Sparkles, Server, Check } from 'lucide-react'
 
 interface Service {
   id: string
@@ -7,88 +7,81 @@ interface Service {
   icon?: string
 }
 
-const fallbackServices = [
+const friendlyServices = [
   {
-    id: "svc-web",
-    title: "High-Performance Web Platforms",
-    description: "Production web applications, multi-tenant dashboards, and high-concurrency portals built with Next.js, React, and Go backends.",
-    icon: "code",
-    deliverables: ["Sub-second TTFB", "Clean Domain Architecture", "Dynamic ISR & Edge Routing"]
+    id: "web-dev",
+    title: "Pembuatan Website Profesional",
+    description: "Website perusahaan, landing page konversi tinggi, hingga web app custom dengan tampilan modern, loading cepat, dan rapi di semua ukuran layar ponsel/laptop.",
+    icon: "web",
+    features: ["Desain Custom & Eksklusif", "SEO Friendly & Cepat Diakses", "Integrasi CMS / Admin Mudah"]
   },
   {
-    id: "svc-mobile",
-    title: "Mission-Critical Mobile Apps",
-    description: "Cross-platform mobile applications optimized for offline operations, real-time synchronization, and native-grade fluid performance.",
+    id: "mobile-dev",
+    title: "Aplikasi Mobile (Android & iOS)",
+    description: "Kembangkan aplikasi mobile dengan navigasi yang intuitif, antarmuka mulus, dan performa stabil agar pelanggan Anda betah menggunakannya.",
     icon: "mobile",
-    deliverables: ["Offline-first SQLite/Sync", "Biometric & Push Notifications", "Cross-Platform Reliability"]
+    features: ["Antarmuka Elegan & Ringan", "Notifikasi & Autentikasi Pengguna", "Siap Rilis di Play Store / App Store"]
   },
   {
-    id: "svc-ai",
-    title: "AI & Autonomous Agent Orchestration",
-    description: "Embed autonomous LLM workflows, custom retrieval pipelines (RAG), and deterministic tool-use agents into your operational software.",
+    id: "ai-solutions",
+    title: "Integrasi Fitur AI & Automasi",
+    description: "Tingkatkan efisiensi bisnis dengan chatbot pintar, automasi alur kerja internal, dan analisis data cerdas yang terpasang langsung ke aplikasi Anda.",
     icon: "ai",
-    deliverables: ["Autonomous Sub-agent Workflows", "Vector & Semantic Search", "Deterministic Guardrails"]
+    features: ["Chatbot Customer Service 24/7", "Automasi Dokumen & Laporan", "Efisiensi Waktu Operasional"]
   },
   {
-    id: "svc-infra",
-    title: "Cloud Infrastructure & CI/CD",
-    description: "Hardened deployments with Docker, automated testing pipelines, PostgreSQL tuning, and observability monitoring built for zero downtime.",
-    icon: "infra",
-    deliverables: ["Automated GitHub Actions CI/CD", "Containerization & K8s/Docker", "Observability & Sentinel Audits"]
+    id: "deploy-maintenance",
+    title: "Deployment & Perawatan Sistem",
+    description: "Pendampingan teknis menyeluruh mulai dari setup domain, server cloud, hingga pemeliharaan rutin dan perbaikan bug agar website Anda selalu online.",
+    icon: "server",
+    features: ["Bantuan Setup Server & Domain", "Backup & Keamanan Terjaga", "Dukungan Teknis Siap Bantu"]
   }
 ]
 
 export function ServicesSection({ services }: { services?: Service[] }) {
-  const displayServices = fallbackServices
-
   return (
-    <section id="services" className="py-24 border-t border-card-border/60 bg-card/10">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="max-w-3xl mb-16">
-          <span className="text-brand-light font-mono text-xs tracking-wider uppercase mb-3 block">
-            Capabilities &amp; Engineering Disciplines
+    <section id="services" className="py-20 md:py-28 bg-white border-y border-zinc-200/80">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-brand font-semibold text-xs tracking-wider uppercase mb-2 block">
+            Layanan Kami
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            Focused technical execution for businesses that cannot afford software failure.
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 tracking-tight mb-4">
+            Solusi digital lengkap untuk memajukan bisnis Anda.
           </h2>
-          <p className="text-muted text-base md:text-lg leading-relaxed">
-            We don&apos;t just build surface-level landing pages. We design end-to-end software architectures that remain performant, maintainable, and battle-tested under real production traffic.
+          <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+            Fokus kembangkan bisnis Anda, biar urusan desain antarmuka, pembuatan kode, dan kelancaran server kami yang tangani secara profesional.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {displayServices.map((service, idx) => (
+          {friendlyServices.map((service) => (
             <div
-              key={service.id || idx}
-              className="p-8 rounded-2xl bg-card border border-card-border hover:border-brand/50 transition-all group flex flex-col justify-between"
+              key={service.id}
+              className="p-7 rounded-2xl bg-zinc-50/70 border border-zinc-200/90 hover:border-sky-300 hover:bg-white hover:shadow-lg hover:shadow-sky-100/50 transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-6 group-hover:scale-105 transition-transform">
-                  {service.icon === 'mobile' ? (
-                    <Smartphone className="w-6 h-6" />
-                  ) : service.icon === 'ai' ? (
-                    <Cpu className="w-6 h-6" />
-                  ) : service.icon === 'infra' ? (
-                    <CloudCog className="w-6 h-6" />
-                  ) : (
-                    <Code2 className="w-6 h-6" />
-                  )}
+                <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-5">
+                  {service.icon === 'web' && <Globe className="w-6 h-6" />}
+                  {service.icon === 'mobile' && <Smartphone className="w-6 h-6" />}
+                  {service.icon === 'ai' && <Sparkles className="w-6 h-6" />}
+                  {service.icon === 'server' && <Server className="w-6 h-6" />}
                 </div>
-                
-                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-brand-light transition-colors">
+
+                <h3 className="text-xl font-bold text-zinc-900 mb-2.5">
                   {service.title}
                 </h3>
-                
-                <p className="text-muted text-sm leading-relaxed mb-6">
+
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-card-border/60 space-y-2">
-                {service.deliverables.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs font-mono text-muted">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-                    <span>{item}</span>
+              <div className="pt-5 border-t border-zinc-200/80 space-y-2">
+                {service.features.map((feat, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs font-medium text-zinc-700">
+                    <Check className="w-4 h-4 text-brand shrink-0" />
+                    <span>{feat}</span>
                   </div>
                 ))}
               </div>
