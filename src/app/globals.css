@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #02040a;
-  --foreground: #ffffff;
-  --brand: #8b5cf6;
-  --brand-light: #a78bfa;
-  --brand-dark: #7c3aed;
-  --card: #0d0f17;
-  --card-hover: #141724;
-  --card-border: #1e2130;
-  --muted: #94a3b8;
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --brand: #2563eb;
+  --brand-light: #60a5fa;
+  --brand-dark: #1d4ed8;
+  --card: #121215;
+  --card-hover: #18181b;
+  --card-border: #27272a;
+  --muted: #a1a1aa;
 }
 
 @theme {
@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
 }
 
-/* Atmospheric Background Glows */
+/* Subtle Technical Grid Background without AI blob slop */
 body::before {
   content: "";
   position: fixed;
@@ -42,33 +42,12 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--background);
-  background-image:
-    radial-gradient(at 40% 20%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* Subtle Grid Texture & Noise */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-size: 40px 40px, auto;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 80%);
-  opacity: 0.8;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
   pointer-events: none;
   z-index: -1;
 }

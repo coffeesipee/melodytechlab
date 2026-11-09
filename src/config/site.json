@@ -1,13 +1,24 @@
 {
   "name": "Melodytechlab",
-  "title": "Melodytechlab | Software Agency",
-  "description": "I build websites and mobile apps that feel premium, launch smoothly, and keep working. One-person agency focused on quality and speed.",
-  "keywords": ["web development", "mobile apps", "next.js", "supabase", "react", "solo agency", "fullstack developer"],
+  "title": "Melodytechlab | Boutique Software Engineering & Architecture Studio",
+  "description": "We engineer high-reliability web applications, mobile platforms, and autonomous systems for ambitious businesses. Direct senior engineering, zero agency bloat.",
+  "keywords": [
+    "Software Engineering Studio",
+    "Web Application Development",
+    "Mobile Apps",
+    "Next.js",
+    "Go Microservices",
+    "Cloud Architecture",
+    "AI Agent Integrations",
+    "Boutique Agency",
+    "Fullstack Engineering"
+  ],
   "url": "https://melodytech.my.id",
   "ogImage": "/og-image.png",
   "links": {
     "services": "/#services",
     "portfolio": "/portfolio",
+    "articles": "/articles",
     "about": "/about",
     "contact": "/#contact"
   }

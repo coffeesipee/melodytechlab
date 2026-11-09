@@ -1,138 +1,129 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Button } from './ui/button'
-import { Calendar } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Terminal, Code2, Cpu, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="relative pt-44 pb-32 overflow-hidden">
-      <div className="container mx-auto px-4">
-        {/* Animated Background Mesh */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand/20 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] animate-pulse delay-700" />
-        </div>
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+    <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+          {/* Left Column: Value Prop */}
           <div className="flex-1 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-medium mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              One-person agency with free consultation
-            </motion.div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand-light text-xs font-mono font-medium mb-8">
+              <span className="w-2 h-2 rounded-full bg-brand-light animate-ping" />
+              Boutique Software Engineering &amp; Architecture
+            </div>
             
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold leading-tight mb-6"
-            >
-              I build <span className="text-brand">websites</span> and <span className="text-brand">mobile apps</span> that feel premium, launch smoothly, and keep working.
-            </motion.h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+              We engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">high-reliability</span> digital products that scale.
+            </h1>
             
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-muted mb-8 max-w-2xl"
-            >
-              I run this agency by myself, so every project gets direct attention from strategy to shipping. From website development and mobile development to deployment and bug fixing, I help businesses move faster with clean, reliable digital products.
-            </motion.p>
+            <p className="text-lg text-muted mb-10 max-w-xl leading-relaxed">
+              From resilient backend systems to polished mobile and web interfaces. Work directly with seasoned engineers — no agency bureaucracy, no inflated timelines, shipped with production-grade rigor.
+            </p>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-12"
-            >
+            <div className="flex flex-wrap items-center gap-4 mb-12">
               <Link href="#contact">
-                <Button size="lg" variant="brand" className="gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Book Free Consultation
+                <Button size="lg" className="bg-brand hover:bg-brand-dark text-white rounded-xl gap-2 font-medium shadow-lg shadow-brand/25 h-12 px-7">
+                  Start a Consultation
+                  <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="gap-2">
-                  View Portfolio
+                <Button size="lg" variant="outline" className="rounded-xl border-card-border hover:bg-card hover:text-foreground h-12 px-7">
+                  View Selected Work
                 </Button>
               </Link>
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-3"
-            >
-              {['Custom websites', 'Mobile apps', 'Deployment support', 'Bug fixes & maintenance'].map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-lg bg-card border border-card-border text-xs text-muted">
-                  {tag}
-                </span>
-              ))}
-            </motion.div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-card-border/60">
+              <div className="flex items-center gap-2 text-xs font-mono text-muted">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Zero Handoff Waste</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-muted">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Strict Clean Architecture</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-muted">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Enterprise SLA Delivery</span>
+              </div>
+            </div>
           </div>
           
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex-1 w-full max-w-lg"
-          >
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-brand rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
-              <div className="relative bg-card border border-card-border rounded-2xl p-6 md:p-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-lg">
-                    SD
+          {/* Right Column: Industrial Bento Showcase */}
+          <div className="flex-1 w-full max-w-lg">
+            <div className="relative rounded-2xl bg-card border border-card-border shadow-2xl overflow-hidden p-6">
+              <div className="flex items-center justify-between pb-4 mb-5 border-b border-card-border/60">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                </div>
+                <div className="flex items-center gap-2 font-mono text-[11px] text-muted">
+                  <Terminal className="w-3.5 h-3.5 text-brand-light" />
+                  <span>melodytechlab-node-01.prod</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {/* Metrics Box */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-4 rounded-xl bg-background/60 border border-card-border">
+                    <span className="text-[10px] font-mono uppercase text-muted tracking-wider block mb-1">Architecture</span>
+                    <span className="text-xl font-bold font-mono text-foreground">Sub-second</span>
+                    <span className="text-[10px] text-emerald-400 block mt-1">99.98% uptime SLA</span>
                   </div>
+                  <div className="p-4 rounded-xl bg-background/60 border border-card-border">
+                    <span className="text-[10px] font-mono uppercase text-muted tracking-wider block mb-1">Delivery Velocity</span>
+                    <span className="text-xl font-bold font-mono text-brand-light">2-4 Weeks</span>
+                    <span className="text-[10px] text-muted block mt-1">Sprint to production</span>
+                  </div>
+                </div>
+
+                {/* Capability Matrix */}
+                <div className="p-4 rounded-xl bg-background/60 border border-card-border space-y-3 font-mono text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-2 text-muted">
+                      <Code2 className="w-4 h-4 text-brand-light" />
+                      Core Stack
+                    </span>
+                    <span className="text-foreground">Next.js • Go • Postgres</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-2 text-muted">
+                      <Cpu className="w-4 h-4 text-brand-light" />
+                      AI Capabilities
+                    </span>
+                    <span className="text-foreground">Autonomous Agents • RAG</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-2 text-muted">
+                      <ShieldCheck className="w-4 h-4 text-brand-light" />
+                      Audits &amp; QA
+                    </span>
+                    <span className="text-emerald-400">TDD &amp; Security Hardened</span>
+                  </div>
+                </div>
+
+                {/* Client Highlight */}
+                <div className="p-3.5 rounded-xl bg-brand/5 border border-brand/20 flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold">Solo-led digital delivery</h3>
-                    <p className="text-xs text-muted">Planning, design thinking, development, launch</p>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-brand-light font-bold">Trusted Case Study</span>
+                    <p className="text-xs font-semibold text-foreground mt-0.5">Pertamina Retail Region VI</p>
                   </div>
-                  <div className="ml-auto px-2 py-1 rounded bg-brand/20 text-brand text-[10px] font-bold uppercase tracking-wider">
-                    Available for work
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="p-4 rounded-xl bg-background/50 border border-card-border">
-                    <p className="text-xs text-muted mb-1">Core services</p>
-                    <p className="text-2xl font-bold">4</p>
-                    <p className="text-[10px] text-muted mt-1">Web, Mobile, Deploy, Fix</p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-background/50 border border-card-border">
-                    <p className="text-xs text-muted mb-1">Consultation</p>
-                    <p className="text-2xl font-bold text-brand">Free</p>
-                    <p className="text-[10px] text-muted mt-1">Get recommendations</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  {[
-                    "Beautiful, responsive websites built for speed",
-                    "Mobile app development with smooth UX",
-                    "Deployment, launch assistance, and support"
-                  ].map((text, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-background/30 border border-card-border/50 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand" />
-                      {text}
-                    </div>
-                  ))}
+                  <Link href="/portfolio/smart-wo" className="text-xs text-brand-light hover:underline font-mono">
+                    Inspect Architecture →
+                  </Link>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-      
-      {/* Background blobs */}
-      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-brand/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-brand/5 rounded-full blur-3xl -z-10" />
     </section>
   )
 }

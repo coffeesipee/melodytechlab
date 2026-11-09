@@ -1,45 +1,79 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Terminal, Shield, Zap } from 'lucide-react'
+
+export const metadata = {
+  title: 'About Studio | Melodytechlab',
+  description: 'Learn about Melodytechlab, a boutique software engineering studio crafting high-reliability web, mobile, and cloud software.',
+}
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       
-      <section className="pt-32 pb-24">
+      <section className="pt-36 pb-24">
         <div className="container mx-auto px-4 max-w-4xl">
-          <span className="text-brand font-medium text-sm tracking-wider uppercase mb-4 block">About Us</span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-12">One builder, focused on your success.</h1>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand-light text-xs font-mono mb-6">
+            Studio Philosophy &amp; Standards
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
+            Engineering software that survives the test of production.
+          </h1>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative aspect-square rounded-3xl overflow-hidden bg-card border border-card-border">
-               <div className="w-full h-full flex items-center justify-center text-brand font-bold text-6xl opacity-20 select-none">
-                  SD
-               </div>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl font-bold">The Solo Agency Philosophy</h2>
-              <p className="text-muted text-lg leading-relaxed">
-                I believe that small, focused teams (even teams of one) can deliver better results than bloated agencies. By removing the layers between the client and the builder, we ensure that every decision is informed by technical reality and every pixel serves a purpose.
+          <p className="text-lg md:text-xl text-muted leading-relaxed mb-16">
+            Melodytechlab was founded on a simple principle: high-stakes software should be engineered by senior practitioners who care about code quality, architectural durability, and business viability — not bloated agency teams with billable padding.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-20">
+            <div className="p-6 rounded-2xl bg-card border border-card-border">
+              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
+                <Terminal className="w-5 h-5" />
+              </div>
+              <h3 className="font-bold text-base mb-2">Pragmatic Tech Choices</h3>
+              <p className="text-xs text-muted leading-relaxed">
+                We select tools based on longevity and runtime performance — Go, Next.js, PostgreSQL, Docker — avoiding fleeting hype cycles.
               </p>
-              <p className="text-muted text-lg leading-relaxed">
-                When you work with me, you get a partner who cares about your business as much as you do. I don&apos;t just write code; I help you build a product that works.
+            </div>
+
+            <div className="p-6 rounded-2xl bg-card border border-card-border">
+              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
+                <Shield className="w-5 h-5" />
+              </div>
+              <h3 className="font-bold text-base mb-2">Zero Handoff Friction</h3>
+              <p className="text-xs text-muted leading-relaxed">
+                Direct client-to-engineer communication ensures technical realities guide strategic choices from day one.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-card border border-card-border">
+              <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand-light mb-4">
+                <Zap className="w-5 h-5" />
+              </div>
+              <h3 className="font-bold text-base mb-2">High Leverage Delivery</h3>
+              <p className="text-xs text-muted leading-relaxed">
+                Automated CI/CD, modular scaffolding, and strict testing gates mean faster releases with fewer regression surprises.
               </p>
             </div>
           </div>
           
-          <div className="grid sm:grid-cols-3 gap-8 text-center border-t border-card-border pt-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center border-t border-card-border/60 pt-16 font-mono">
             <div>
-              <p className="text-4xl font-bold text-brand mb-2">5+</p>
-              <p className="text-sm text-muted uppercase tracking-widest font-medium">Years Experience</p>
+              <p className="text-3xl font-bold text-foreground mb-1">99.9%</p>
+              <p className="text-[11px] text-muted uppercase tracking-wider">Uptime Standards</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand mb-2">50+</p>
-              <p className="text-sm text-muted uppercase tracking-widest font-medium">Projects Launched</p>
+              <p className="text-3xl font-bold text-brand-light mb-1">Enterprise</p>
+              <p className="text-[11px] text-muted uppercase tracking-wider">Clients Handled</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand mb-2">100%</p>
-              <p className="text-sm text-muted uppercase tracking-widest font-medium">Direct Attention</p>
+              <p className="text-3xl font-bold text-foreground mb-1">100%</p>
+              <p className="text-[11px] text-muted uppercase tracking-wider">IP Ownership</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-brand-light mb-1">Zero</p>
+              <p className="text-[11px] text-muted uppercase tracking-wider">Agency Bloat</p>
             </div>
           </div>
         </div>

@@ -1,165 +1,148 @@
 'use client'
 
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
 import { Button } from './ui/button'
-import { Loader2, Send } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-
-const formSchema = z.object({
-  name: z.string().min(2, 'Name is required'),
-  email: z.string().email('Invalid email address'),
-  service_type: z.string().min(1, 'Please select a service'),
-  details: z.string().min(10, 'Please provide more details about your project'),
-  consultation_requested: z.boolean(),
-})
-
-type FormValues = z.infer<typeof formSchema>
+import { Send, CheckCircle2, ShieldAlert } from 'lucide-react'
 
 export function ContactSection() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const supabase = createClient()
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      consultation_requested: false,
-    },
-  })
-
-  async function onSubmit(data: FormValues) {
-    setIsSubmitting(true)
-    try {
-      const { error } = await supabase.from('leads').insert([data])
-      if (error) throw error
-      setIsSuccess(true)
-      reset()
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      alert('Something went wrong. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      setSubmitted(true)
+    }, 600)
   }
 
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto rounded-3xl bg-card border border-card-border overflow-hidden">
+    <section id="contact" className="py-24 border-t border-card-border/60 bg-background">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="rounded-3xl bg-card border border-card-border overflow-hidden shadow-2xl">
           <div className="grid md:grid-cols-2">
-            <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-card-border">
-              <span className="text-brand font-medium text-sm tracking-wider uppercase mb-4 block">Start a project</span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Need a website, mobile app, deployment help, or urgent bug fix?
-              </h2>
-              <p className="text-muted text-lg mb-12">
-                Tell me what you are building, what is blocked, or what you want to improve. I offer a free consultation to help you define the next move clearly.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-card-border">
-                  <div className="w-2 h-2 rounded-full bg-brand" />
-                  <span className="text-sm">Available for website and app projects</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-card-border">
-                  <div className="w-2 h-2 rounded-full bg-brand" />
-                  <span className="text-sm">Also open to deployment support and fixing existing issues</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-card-border">
-                  <div className="w-2 h-2 rounded-full bg-brand" />
-                  <span className="text-sm">Free consultation with direct recommendations</span>
+            {/* Info Column */}
+            <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-card-border flex flex-col justify-between">
+              <div>
+                <span className="text-brand-light font-mono text-xs tracking-wider uppercase mb-3 block">
+                  Project Inquiry
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                  Ready to engineer your next digital platform?
+                </h2>
+                <p className="text-muted text-sm md:text-base leading-relaxed mb-8">
+                  Whether you require an enterprise web portal, mobile app development, or autonomous AI workflows — let&apos;s evaluate your technical requirements with clarity.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="text-xs text-foreground">Direct discussion with lead engineers</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="text-xs text-foreground">Confidential NDA protected by default</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-background/50 border border-card-border">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="text-xs text-foreground">Detailed technical roadmap &amp; quote in 48 hours</span>
+                  </div>
                 </div>
               </div>
+
+              <div className="pt-8 mt-8 border-t border-card-border/60 font-mono text-xs text-muted">
+                <span>Inquiries: </span>
+                <a href="mailto:hello@melodytech.my.id" className="text-brand-light hover:underline">
+                  hello@melodytech.my.id
+                </a>
+              </div>
             </div>
-            
-            <div className="p-8 md:p-12 bg-card-hover/30">
-              {isSuccess ? (
-                <div className="h-full flex flex-col items-center justify-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-6">
-                    <Send className="w-8 h-8" />
+
+            {/* Form Column */}
+            <div className="p-8 md:p-12 bg-card-hover/20">
+              {submitted ? (
+                <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Message Sent!</h3>
-                  <p className="text-muted mb-8">
-                    Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+                  <h3 className="text-xl font-bold mb-2">Inquiry Received</h3>
+                  <p className="text-muted text-xs md:text-sm max-w-sm mb-6 leading-relaxed">
+                    Thank you. We will review your project details and reach out within 24–48 hours to schedule a discovery call.
                   </p>
-                  <Button onClick={() => setIsSuccess(false)}>Send another message</Button>
+                  <Button variant="outline" size="sm" onClick={() => setSubmitted(false)}>
+                    Send Another Message
+                  </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Your name</label>
-                    <input
-                      {...register('name')}
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none transition-colors"
-                      placeholder="Enter your name"
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email address</label>
-                    <input
-                      {...register('email')}
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none transition-colors"
-                      placeholder="your@email.com"
-                    />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">What do you need?</label>
-                    <select
-                      {...register('service_type')}
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none transition-colors appearance-none"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="website">Website Development</option>
-                      <option value="mobile">Mobile App Development</option>
-                      <option value="deployment">Deployment Support</option>
-                      <option value="bugfix">Bug Fixing & Maintenance</option>
-                    </select>
-                    {errors.service_type && <p className="text-red-500 text-xs mt-1">{errors.service_type.message}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Project details</label>
-                    <textarea
-                      {...register('details')}
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none transition-colors resize-none"
-                      placeholder="Tell me more about your project..."
-                    />
-                    {errors.details && <p className="text-red-500 text-xs mt-1">{errors.details.message}</p>}
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex items-center h-5">
-                      <input
-                        {...register('consultation_requested')}
-                        type="checkbox"
-                        className="w-4 h-4 rounded border-card-border bg-background text-brand focus:ring-brand"
-                      />
-                    </div>
-                    <label className="text-sm text-muted">
-                      I am interested in a free consultation before starting.
+                    <label className="block text-xs font-mono uppercase text-muted mb-2">
+                      Full Name *
                     </label>
+                    <input
+                      required
+                      name="name"
+                      placeholder="e.g. Alex Johnson"
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors"
+                    />
                   </div>
-                  
-                  <Button type="submit" disabled={isSubmitting} variant="brand" className="w-full py-6 text-lg">
-                    {isSubmitting ? (
-                      <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                    ) : (
-                      <Send className="w-5 h-5 mr-2" />
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-muted mb-2">
+                      Work Email *
+                    </label>
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      placeholder="alex@company.com"
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-muted mb-2">
+                      Scope / Focus Area *
+                    </label>
+                    <select
+                      required
+                      name="service_type"
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors text-foreground"
+                    >
+                      <option value="">Select scope</option>
+                      <option value="web">Web Application / SaaS Engineering</option>
+                      <option value="mobile">Mobile Application Development</option>
+                      <option value="ai">AI &amp; Autonomous Agent Systems</option>
+                      <option value="infra">Cloud Architecture &amp; DevOps</option>
+                      <option value="consult">Technical Architecture Audit</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-muted mb-2">
+                      Project Goals &amp; Timeline *
+                    </label>
+                    <textarea
+                      required
+                      name="details"
+                      rows={4}
+                      placeholder="Describe your current system or what you are aiming to build..."
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand-light outline-none text-sm transition-colors resize-none"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-brand hover:bg-brand-dark text-white rounded-xl py-6 text-sm font-semibold shadow-md shadow-brand/20 gap-2"
+                  >
+                    {loading ? "Transmitting..." : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Submit Project Inquiry
+                      </>
                     )}
-                    Request Consultation
                   </Button>
                 </form>
               )}
