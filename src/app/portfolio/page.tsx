@@ -11,10 +11,13 @@ export const metadata = {
 export default async function PortfolioPage() {
   const supabase = await createClient()
 
-  const { data: portfolios } = await supabase
-    .from('portfolios')
-    .select('*')
-    .order('created_at', { ascending: false })
+  let portfoliosQuery = supabase.from('portfolios').select('*')
+  let { data: portfolios, error: portError } = await portfoliosQuery.order('display_order', { ascending: true })
+
+  if (portError) {
+    const fallbackRes = await supabase.from('portfolios').select('*').order('created_at', { ascending: false })
+    portfolios = fallbackRes.data
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground">

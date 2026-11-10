@@ -6,10 +6,15 @@ import Image from 'next/image'
 
 export default async function PortfoliosAdminPage() {
   const supabase = await createClient()
-  const { data: portfolios } = await supabase
+  let { data: portfolios, error } = await supabase
     .from('portfolios')
     .select('*')
-    .order('created_at', { ascending: false })
+    .order('display_order', { ascending: true })
+
+  if (error) {
+    const fallbackRes = await supabase.from('portfolios').select('*').order('created_at', { ascending: false })
+    portfolios = fallbackRes.data
+  }
 
   return (
     <div className="space-y-8">

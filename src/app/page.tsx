@@ -15,11 +15,14 @@ export default async function Home() {
     .select('*')
     .order('display_order', { ascending: true })
 
-  const { data: portfolios } = await supabase
-    .from('portfolios')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(3)
+  // Support sequence/display_order if column exists, fallback to created_at
+  let portfoliosQuery = supabase.from('portfolios').select('*')
+  let { data: portfolios, error: portError } = await portfoliosQuery.order('display_order', { ascending: true })
+  
+  if (portError) {
+    const fallbackRes = await supabase.from('portfolios').select('*').order('created_at', { ascending: false })
+    portfolios = fallbackRes.data
+  }
 
   const defaultServices = [
     {

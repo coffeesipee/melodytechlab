@@ -18,6 +18,7 @@ interface PortfolioData {
   client: string
   year: string
   live_url: string
+  display_order?: number
 }
 
 interface PortfolioImage {
@@ -43,6 +44,7 @@ export function PortfolioForm({ initialData, initialImages = [] }: PortfolioForm
     client: initialData?.client || '',
     year: initialData?.year || new Date().getFullYear().toString(),
     live_url: initialData?.live_url || '',
+    display_order: initialData?.display_order ?? 0,
   })
   
   const [galleryImages, setGalleryImages] = useState<Partial<PortfolioImage>[]>(initialImages)
@@ -234,15 +236,28 @@ export function PortfolioForm({ initialData, initialImages = [] }: PortfolioForm
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Live URL</label>
-                <input
-                  type="url"
-                  value={formData.live_url}
-                  onChange={(e) => setFormData({ ...formData, live_url: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none font-mono text-sm"
-                  placeholder="https://example.com"
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Live URL</label>
+                  <input
+                    type="url"
+                    value={formData.live_url}
+                    onChange={(e) => setFormData({ ...formData, live_url: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none font-mono text-sm"
+                    placeholder="https://example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Display Sequence (Urutan)</label>
+                  <input
+                    type="number"
+                    value={formData.display_order}
+                    onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-card-border focus:border-brand outline-none font-mono text-sm"
+                    placeholder="0"
+                  />
+                  <p className="text-[11px] text-muted mt-1">Angka lebih kecil tampil lebih awal (e.g. 0, 1, 2...)</p>
+                </div>
               </div>
             </div>
 
